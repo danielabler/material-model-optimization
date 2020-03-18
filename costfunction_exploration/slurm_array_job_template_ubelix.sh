@@ -39,8 +39,4 @@ export SINGULARITYENV_SIM_ID=$TASK_ARRAY_ID_INT
 
 cd $PATH_CODE_GLIMSLIB
 echo "==== Step 1"
-singularity exec -B /storage:/storage -e $PATH_SINGULARITY_IMAGE python3 $PATH_CODE_EXPERIMENT/sim_01.py
-echo "==== Step 2"
-singularity exec -B /storage:/storage -e $PATH_SINGULARITY_IMAGE python3 $PATH_CODE_EXPERIMENT/sim_02.py
-echo "==== Step 3"
-singularity exec -B /storage:/storage -e $PATH_SINGULARITY_IMAGE python3 $PATH_CODE_EXPERIMENT/sim_03_compute_loss.py
+singularity exec -e $PATH_SINGULARITY_IMAGE python3 $PATH_CODE_EXPERIMENT/compute_costfunction.py

@@ -1,12 +1,12 @@
 import pathlib as pl
 import pandas as pd
-from fenics.costfunction_exploration import config_study as config
+from costfunction_exploration import config_study as config
 from pasty_local.pasty.parametric_study import ParametricStudy
 
 
-varying_params = {"D_WM":      {'range' : [0.05, 0.4], "stepsize" : 0.05},
-                  "rho_WM":    {'range' : [0,1], "steps" : 1},
-                  "coupling":  {'range' : [0.05,0.3], "stepsize" : 0.05}}
+varying_params = {"mu":      {'range' : [0.05, 0.4], "stepsize" : 0.05},
+                  "nu":      {'range' : [0,1], "steps" : 1},
+                  "lambda":  {'range' : [0.05,0.3], "stepsize" : 0.05}}
 
 ps = ParametricStudy(config.parameters['sim_base_dir'], varying_params)
 ps.config['id_format']= '%04d'
