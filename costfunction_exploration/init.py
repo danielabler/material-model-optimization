@@ -4,9 +4,9 @@ from costfunction_exploration import config_study as config
 from pasty_local.pasty.parametric_study import ParametricStudy
 
 
-varying_params = {"mu":      {'range' : [0.05, 0.4], "stepsize" : 0.05},
-                  "nu":      {'range' : [0,1], "steps" : 1},
-                  "lambda":  {'range' : [0.05,0.3], "stepsize" : 0.05}}
+varying_params = {"nu":      {'range' : [0.395, 0.455], "steps" : 2},
+                  "mu":      {'range' : [0.2,0.8],      "steps" : 2},
+                  "alpha":   {'range' : [-30,-20],      "steps" : 2}}
 
 ps = ParametricStudy(config.parameters['sim_base_dir'], varying_params)
 ps.config['id_format']= '%04d'

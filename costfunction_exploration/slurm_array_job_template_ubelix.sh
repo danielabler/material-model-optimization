@@ -3,7 +3,7 @@
 #  QUEUE SETTINGS
 #================================================================
 #--- EMAIL ADDRESS
-#SBATCH --mail-user=daniel.abler@artorg.unibe.ch
+#SBATCH --mail-user=mathieu.simon@artorg.unibe.ch
 #SBATCH --mail-type=end,fail
 #--- Mandatory resources (h_cpu=hh:mm:ss)
 #SBATCH --cpus-per-task=1

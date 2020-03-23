@@ -31,6 +31,11 @@ def get_study_parameters(sim_base_dir=None):
     parameters = load_parameter_file(p_params)
     return parameters
 
+def get_parameters(sim_dir=None):
+    p_params = pl.Path(sim_dir).joinpath('params.py')
+    parameters = load_parameter_file(p_params)
+    return parameters
+
 #=======================================================================================================================
 # Settings
 #=======================================================================================================================
@@ -38,7 +43,7 @@ def get_study_parameters(sim_base_dir=None):
 material_model = 'neo-hookean'
 n_elements = 10
 
-max_sim_time = "00:05:00"
+max_sim_time = "00:10:00"
 max_sim_memory = "2G"
 
 #=======================================================================================================================
