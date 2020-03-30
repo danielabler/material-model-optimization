@@ -32,6 +32,8 @@ def main(argv):
     except getopt.GetoptError:
         print("postprocess.py -m <mode>")
         sys.exit(2)
+	
+    mode = 'analyze'
 
     for opt, arg in opts:
         if opt == "-h":

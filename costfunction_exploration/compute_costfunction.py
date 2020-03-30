@@ -40,12 +40,29 @@ RelativeWeights = [1,1,1]
 FinalRelativeStretch = 0.1
 RelativeStepSize     = 0.02
 
-cost = sf.CostFunction(parameter_list, ConstitutiveModel, BCsType, NumberElements, LoadCases, RelativeWeights, FinalRelativeStretch, RelativeStepSize)
+TotalCostStep, CompressionCostStep, TensileCostStep, SimpleShearCostStep, TotalCostNoNorm, CompressionCostNoNorm, TensileCostNoNorm, SimpleShearCostNoNorm, TotalCostNormMax, CompressionCostNormMax, TensileCostNormMax, SimpleShearCostNormMax = sf.CostFunction(parameter_list, ConstitutiveModel, BCsType, NumberElements, LoadCases, RelativeWeights, FinalRelativeStretch, RelativeStepSize)
 
 #== WRITE OUTPUT ==================================================
-test_output = {"sim_id"  : config.sim_id,
-               "sim_dir" : config.sim_data_dir,
-               "cost": cost}
+test_output =  {'sim_id'                : config.sim_id,
+                'sim_dir'               : config.sim_data_dir,
+                'Nu'                    : parameter_list[0],
+                'Mu'                    : parameter_list[1],
+                'Alpha'                 : parameter_list[2],
+                'ConstitutiveModel'     : ConstitutiveModel,
+                'NumberElements'        : NumberElements,
+                'BCsType'               : BCsType,
+                'CompressionCostNoNorm' : CompressionCostNoNorm,
+                'TensileCostNoNorm'     : TensileCostNoNorm,
+                'SimpleShearCostNoNorm' : SimpleShearCostNoNorm,
+                'TotalCostNoNorm'       : TotalCostNoNorm,
+                'CompressionCostNormMax': CompressionCostNormMax,
+                'TensileCostNormMax'    : TensileCostNormMax,
+                'SimpleShearCostNormMax': SimpleShearCostNormMax,
+                'TotalCostNormMax'      : TotalCostNormMax,
+                'CompressionCostStep'   : CompressionCostStep,
+                'TensileCostStep'       : TensileCostStep,
+                'SimpleShearCostStep'   : SimpleShearCostStep,
+                'TotalCostStep'         : TotalCostStep}
 
 path_to_results = os.path.join(config.sim_data_dir, 'results.pkl')
 import pandas as pd
